@@ -14,22 +14,28 @@ const lang = import.meta.env.WEBSITE_LANGUAGE;
 const url = Astro.site;
 
 const config = {
-  locale: lang,
-  site_url: url,
-  logo_url: "https://nebulix.unfolding.io/logo.svg",
-  local_backend: true,
-  backend: {
-    name: "test-repo",
-  },
-  search: true,
-  media_folder: "src/assets",
-  public_folder: "/src/assets",
-  media_library: {
-    max_file_size: 2012000,
-    folder_support: true,
-  },
-  collections: [page, post, project, product, menu, settings],
+	locale: 'es',
+	site_url: 'https://nebulix.unfolding.io',
+	logo_url: 'https://nebulix.unfolding.io/nebulix-logo.svg',
+	local_backend: true,
+	backend: {
+		name: 'github',
+		repo: 'https://github.com/AndrewUru/nebulix-store', // Sustituye con el usuario y repositorio de GitHub
+		branch: 'main', // Cambia si usas otra rama
+		auth_type: 'pkce', // Método de autenticación recomendado
+		app_id: 'xxxx', // ID de la aplicación de GitHub
+		commit_messages: {
+			create: 'Create {{collection}} "{{slug}}"',
+			update: 'Update {{collection}} "{{slug}}"',
+			delete: 'Delete {{collection}} "{{slug}}"',
+			uploadMedia: 'Upload "{{path}}"',
+			deleteMedia: 'Delete "{{path}}"'
+		}
+	},
+	search: 'true',
+    // Otras configuraciones adicionales...
 };
+
 ---
 
 <!doctype html>
